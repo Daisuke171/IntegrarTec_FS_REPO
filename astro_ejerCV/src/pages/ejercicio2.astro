@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <meta name="generator" content={Astro.generator} />
+
+    <style>
+    .simple-linear1 {
+    width: 100px;
+    height: 100px;
+    background: 
+        linear-gradient(oklch(40.1% 0.123 21.57), oklch(70% 0.1973 167.82)),
+        url("https://img1.picmix.com/output/stamp/thumb/9/0/2/5/2005209_b080e.gif");
+    background-size: cover;
+    background-blend-mode: overlay;
+ }
+
+    .simple-linear2{
+        width: 250px;
+        height: 200px;
+        background: 
+        linear-gradient(to left, #FAF, #CECE),
+        url("https://img1.picmix.com/output/stamp/thumb/9/0/2/5/2005209_b080e.gif");
+        background-blend-mode: overlay;
+        background-repeat: repeat;
+    }
+
+    .simple-linear3{
+        width: 300px;
+        height: 500px;
+        background: 
+        linear-gradient(45deg, lch(50% 75 50), lch(40% 135 360)),
+        url("https://img1.picmix.com/output/stamp/thumb/9/0/2/5/2005209_b080e.gif");
+        background-blend-mode: overlay;
+        background-attachment: fixed;
+    }
+
+    .simple-radial1{
+        width: 500px;
+        height: 500px;
+        background: 
+        radial-gradient(#CECE, #FAF),
+        url("https://img1.picmix.com/output/stamp/thumb/9/0/2/5/2005209_b080e.gif") repeat-y left top,
+        url("https://media.tenor.com/nR0W2ZdCAc0AAAAj/madotsuki-chair-bounce-yume-nikki.gif") repeat-y center top,
+        url("https://media.tenor.com/sPD9wVJFP24AAAAj/yume-nikki.gif") repeat-y right top;
+        background-size: cover, auto, auto, 100px;
+        background-blend-mode: overlay;
+    }
+    .simple-radial2{
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(at 0% 60%, #CECE, #FAF, #fff);
+    }
+
+    .simple-conic{
+        width: 100px;
+        height: 100px;
+        background: conic-gradient(from 0.3rad, #FAF, #CECE, #EEE);
+    }
+
+    
+
+    </style>
+</head>
+<body>
+    <h1>Linear-gradient</h1>
+    <h2>example 1</h2>
+    <div class="simple-linear1"></div>
+    <h2>example 2</h2>
+    <div class="simple-linear2"></div>
+    <h2>example 3</h2>
+    <div class="simple-linear3"></div>
+    <hr>
+    <h1>Radial-gradient</h1>
+    <h2>example 1</h2>
+    <div class="simple-radial1"></div>
+    <h2>example 2</h2>
+    <div class="simple-radial2"></div>
+    <hr>
+    <h1>Conic-gradient</h1>
+    <h2>example 1</h2>
+    <div class="simple-conic"></div>
+    
+</body>
+</html>

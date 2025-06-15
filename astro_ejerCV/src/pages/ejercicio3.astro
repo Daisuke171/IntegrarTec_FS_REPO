@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <meta name="generator" content={Astro.generator} />
+
+<style>
+    @keyframes transformShape {
+    0% {
+        transform: scale(1) rotate(0deg) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg) translate(50px, -50px);
+    }
+    100% {
+        transform: scale(1) rotate(360deg) translate(0, 0);
+    }
+    }
+
+    @keyframes colorFade {
+    0% {
+        background-color: #ff6f61;
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+    }
+    50%{
+        background-color: #faf;
+        opacity: 0.75;
+        width: 125px;
+        height: 125px;
+    }
+    100% {
+        background-color: #6a1b9a;
+        opacity: 0.5;
+        width: 150px;
+        height: 150px;
+    }
+    }
+
+    @keyframes complexMove {
+    0% {
+        transform: translateX(0) scale(1);
+        background-color: #4caf50;
+        border-radius: 0%;
+        opacity: 1;
+    }
+    25%{
+        transform: translateX(150px) scale(1.2);
+        background-color: #ff9800;
+        border-radius: 50%;
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateX(0px) scale(1.2);
+        background-color: #faf;
+        border-top-left-radius: 75%;
+        opacity: 0.7;
+    }
+    75%{
+        transform: translateX(-150px) scale(1.2);
+        background-color: #6f6;
+        border-top-left-radius: 75%;
+        border-top-right-radius: 75%;
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(150) scale(1);
+        background-color: #4caf50;
+        border-radius: 0%;
+        opacity: 1;
+    }
+}
+
+    .anime1 {
+    width: 100px;
+    height: 100px;
+    display: block;
+    justify-self: center;
+    background-color: #fafa;
+    animation: transformShape 4s ease-in-out infinite alternate;
+    }
+
+    .anime2{
+    width: 100px;
+    height: 100px;
+    display: block;
+    justify-self: center;
+    background-color: #fafa;
+    animation: colorFade 3s ease-in infinite alternate-reverse;
+    }
+
+    .anime3{
+    width: 100px;
+    height: 100px;
+    display: block;
+    justify-self: center;
+    background-color: #fafa;
+    animation: complexMove 5s ease-in-out infinite alternate;
+    }
+</style>
+    
+</head>
+<body>
+    <h1>Animation 1</h1>
+    <div class="anime1"></div>
+    <hr>
+    <hr>
+    <h1>Animation 2</h1>
+    <div class="anime2"></div>
+    <hr>
+    <hr>
+    <h1>Animation 3</h1>
+    <div class="anime3"></div>
+</body>
+</html>

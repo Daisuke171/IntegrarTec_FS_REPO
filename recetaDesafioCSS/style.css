@@ -1,0 +1,124 @@
+/* RESET de CSS */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+
+body{
+    background-image: url("https://slidechef.net/wp-content/uploads/2022/06/Retro-90s-Background.jpg");
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+#box{
+    width: 90%;
+    height: 90%;
+    padding: 1rem 4rem;
+    margin: 2rem 0;
+    background-color: aliceblue;
+    border-radius: 50px;
+    justify-self: center;
+}
+header, main{
+    margin-bottom: 3rem;
+    justify-self: center;
+}
+main{
+    margin-top: 1.9rem;
+}
+main section{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#sauce{
+    margin-top: 1.9rem;
+    margin-bottom: 1.9rem;
+}
+footer{
+    margin-top: 1.9rem;
+}
+header{
+    text-align: center;
+}
+header figure{
+    justify-items: center;
+}
+.ingredients{
+    width: 70%;
+    min-width: 70%;
+    padding-left: 2.5rem;
+    justify-self: center;
+    border: black solid 2px;
+    border-radius: 30px;
+    background: url("https://preview.redd.it/i-made-a-lil-yume-nikki-pattern-thingy-v0-rnxmkq5ewlpa1.png?width=1080&crop=smart&auto=webp&s=1ea574a347df20cf9fcfb28c1f71241310093dc9");
+    color: azure;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+.preparation{
+    width: 50%;
+    justify-self: center;
+    padding-left: 2.5rem;
+    border: black solid 2px;
+    border-radius: 30px;
+    background: url("https://images.squarespace-cdn.com/content/v1/5cf8d3ba874eb3000144d2fd/1561921143470-QRTO9SUZXRX9PUIRHQ1S/Screen+Shot+2019-06-30+at+11.56.26+AM.png?format=2500w");
+    color: azure;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+
+@keyframes rotativeCannelloni{
+    0% {
+        transform: translateX(-300px) rotate(360deg);
+    }
+    50% {
+        transform: translateX(0px) rotate(-360deg);
+    }
+    100% {
+        transform: translateX(300px) rotate(360deg);
+    }
+}
+@keyframes rainbow {
+    0%{
+        color: oklch(0.75 0.2861 145.59);
+    }
+    50%{
+        color: oklch(0.75 0.1677 213.35);
+    }
+    100%{
+        color: oklch(0.75 0.1924 0);
+    }
+}
+
+#photo_cannelloni:active{
+    animation: rotativeCannelloni 4s ease-in-out infinite alternate;
+}
+
+a:hover{
+    animation: rainbow 1s ease-in-out infinite alternate;
+}

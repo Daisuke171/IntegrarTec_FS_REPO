@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--SEO Meta tags-->
+    <meta name="Description" content="Single-page CV for a developer with skills, education, work experience, and projects">
+    <meta name="keywords" content="CV, resume, developer, skills, education, work experience, projects">
+    <meta name="author" content="Dev Name">
+    <!--Open Graph (OG) Tags-->
+    <meta property="og:title" content="Single-page CV">
+    <meta property="og:description" content="Single-page CV for a developer with skills, education, work experience, and projects">
+    <meta property="og:image" content="https://yt3.ggpht.com/yti/ANjgQV_LTqEy_oeyT_6pTEY8WLtev5nkELTTxqdCBAOq5J3bzzU=s0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devname.dev">
+    <meta name="generator" content={Astro.generator} />
+    <title>Ejercicio 1</title>
+    
+    <style>
+    /* RESET de CSS */
+    *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    html {
+    font-size: 16px;
+    }
+
+    body {
+    min-height: 100vh;
+    line-height: 1.5;
+    }
+
+    img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    }
+
+    input, button, textarea, select {
+    font: inherit;
+    }
+
+
+    html{
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fafafa;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    figure img{
+        width: 10rem;
+        margin: auto;
+        border-radius: 50%;
+        border: solid;
+        border-color: #373737;
+    }
+
+    figure img:hover{
+        transform: scale(1.05) rotate(0.1rad);
+        transition: all 1s;
+    }
+
+    figure figcaption{
+        padding-top: 2px;
+        color: #000000b1;
+    }
+
+    #myName {
+    margin-top: 1rem;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    }
+
+    #myName::after,
+    #myName::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #ff0000, #00ffff);
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+    }
+
+    #myName::before {
+    top: -1px;
+    transform-origin: left;
+    }
+
+    #myName:hover::after,
+    #myName:hover::before {
+    transform: scaleX(1);
+    }
+
+    
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+   
+    hr{
+        opacity: 0;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border: 2px solid #373737;
+        border-radius: 2%;
+        padding: 1.5em;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    }
+    main h2{
+        font-size: 1.5rem;
+        text-align: center;
+        padding-bottom: 3px;
+    }
+    main h3{
+        font-size: 1rem;
+    }
+    main li:last-child{
+        margin-bottom: 1rem;
+    }
+    main p{
+        text-align: center;
+    }
+    main ul {
+    list-style: none; /* Quitamos los bullets por defecto */
+    padding-left: 1.5rem; /* Dejamos espacio para nuestros propios bullets */
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacio entre ítems */
+    }
+
+    main li {
+        position: relative;
+        padding-left: 1.2rem;
+        font-size: 1rem;
+    }
+
+    main li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #ff4c4c;
+        font-size: 1rem;
+        line-height: 1;
+    }
+
+    footer {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    }
+
+    fieldset {
+        border: 2px solid #373737;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    label {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.3rem;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    input[type="submit"] {
+        background-color: #373737;
+        color: #fff;
+        padding: 0.7rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+    #Education, #work{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    #University, #working_exp{
+        display: block;
+        justify-items: center;
+        border: 2px solid #373737;
+        border-radius: 0.5rem;
+        width: 50%;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="myName">Agustin Alejandro Benitez</h1>
+        <h2>University Student</h2>
+        <figure>
+            <img src="https://yt3.ggpht.com/yti/ANjgQV_LTqEy_oeyT_6pTEY8WLtev5nkELTTxqdCBAOq5J3bzzU=s0" alt="photo of the developer">
+            <figcaption class="avatar">
+                Photo of the avatar I mainly use.
+            </figcaption>
+        </figure>
+    </header>
+    <hr>
+    <main>
+        <section id="about-me">
+            <h2>About me.</h2>
+            <p>I'm a 24 years old argentinian university student, currently working at a drugstore and studing a carrer in computer programming.</p>
+            <p>I'm really into anything related to Japan, videogames, music, and sciences. I learned japanese by myself.</p>
+            <p>I'm really shy.</p>
+        </section>
+        <hr>
+        <section id="skills">
+            <h2>Skills</h2>
+            <h3>IT related skills</h3>
+            <ul id="it_skills">
+                <li>C/C++</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>flowcharts</li>
+                <li>Word</li>
+                <li>Excel</li>
+                <li>Powerpoint</li>
+            </ul>
+
+            <h3>Languages</h3>
+            <ul id="languages">
+                <li>Japanese</li>
+                <li>English</li>
+                <li>Spanish</li>
+            </ul>
+
+            <h3>Other skills</h3>
+            <ul id="Others">
+                <li>Math: Calculus, Trigonemetry, Algebra</li>
+                <li>Arts: Guitar, piano, drawing</li>
+            </ul>
+        </section>
+        <hr>
+        <section id="Education">
+            <h2>Education</h2>
+            <section id="University">
+            <h3>UTN General Pacheco</h3>
+            <p>Tecnicatura Universitaria en Programación</p>
+            <p>Desde: 2024, Hasta: Actualmente</p>
+            </section>
+        </section>
+        <hr>
+        <section id="work">
+            <h2>Work Experience</h2>
+            <section id="working_exp"> <!--Prefiero no decir mucho por temas de privacidad-->
+                <h3>Drugstore</h3>
+                <p>Desde: 2022, Hasta: Actualmente</p>
+            </section>
+        </section>
+    </main>
+
+
+    <hr>
+    <footer>
+        <h2>Contacto</h2>
+        <fieldset>
+            <form id="contact">
+                <label for="name">Nombre: </label>
+                <input type="text" id="name" name="name" required> <br>
+                <label for="subject">Asunto: </label>
+                <input type="text" id="subject" name="subject" required><br>
+                <label for="msg">Mensaje: </label>
+                <input type="text" name="msg" id="msg" required><br>
+                <input type="submit">
+            </form>
+        </fieldset>
+        <p>&copy; 2025 Agustin Alejandro Benitez</p>
+    </footer>
+</body>
+</html>
