@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <form class="form">
+    <h2>Registro</h2>
+    
+    <label for="form__firstName" >Nombre:</label>
+    <input type="text" class="form__firstName" required>
+
+    <label for="form__lastName">Apellido:</label>
+    <input type="text" class="form__lastName" required>
+
+    <label for="form__username">Nombre de usuario:</label>
+    <input type="text" class="form__username" required>
+
+    <label for="form__password">Contraseña:</label>
+    <input type="password" class="form__password" minlength="9" required>
+
+    <label for="form__confirmPassword">Confirmar Contraseña:</label>
+    <input type="password" class="form__confirmPassword" minlength="9" required>
+
+    <label for="form__birthday">Fecha de Nacimiento:</label>
+    <input type="date" class="form__birthday" required>
+
+    <label>
+      <input type="checkbox" class="form__newsletter">
+      Suscribirse al newsletter
+    </label>
+
+    <div class="form__errorMsg error"></div>
+
+    <button type="submit" class="form__send">Registrarse</button>
+</form>
+
+<script src="function.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Mediante el uso de HTML, CSS y JavaScript, diseñe un 
+formulario de registro con los siguientes campos: 
+first name, lastname, username, password, confirm password, 
+birthday, newsletter checkbox. 
+
+Con JavaScript realice las validaciones de datos que 
+considere necesarias, por ejemplo que no se puedan poner 
+números en los campos first name y last name.
