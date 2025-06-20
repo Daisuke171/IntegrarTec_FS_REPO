@@ -1,0 +1,1 @@
+Mediante el uso de HTML, CSS y JavaScript, diseñe una ventana modal que tenga un mensaje personalizado, un botón de confirmar, un botón de cancelar y un botón de cerrar.
