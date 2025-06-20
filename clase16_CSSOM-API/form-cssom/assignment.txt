@@ -1,8 +1,1 @@
-Mediante el uso de HTML, CSS y JavaScript, diseñe un 
-formulario de registro con los siguientes campos: 
-first name, lastname, username, password, confirm password, 
-birthday, newsletter checkbox. 
-
-Con JavaScript realice las validaciones de datos que 
-considere necesarias, por ejemplo que no se puedan poner 
-números en los campos first name y last name.
+Haciendo uso del formulario creado en la clase anterior. En tiempo real, cambiar los estilos y añadir un <span> en cada input para mostrar un texto correspondiente si la validación falla. Además, guardar los datos en el localStorage una vez que las validaciones no fallen.
