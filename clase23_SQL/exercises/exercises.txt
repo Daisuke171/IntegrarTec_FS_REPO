@@ -1,0 +1,45 @@
+Ejercicios
+A partir de la base de datos suministrada y mediante DQL. 
+Hacer las consultas (queries) necesarias para responder las siguientes 
+preguntas:
+
+1- ¿Cuántas tiendas (store) hay en total?
+2- ¿Cuántas películas (film) tienen una duración de más de 120 minutos?
+3- ¿Cuántos pagos realizó el cliente (customer) con el ID 472?
+4- ¿Cuál es el ID de la película (film) que tiene un 
+   ID de inventario (inventory) 303?
+5- ¿Cuál es la dirección (address) y distrito (district) 
+   de la persona cuyo teléfono es 634445428822?
+
+
+
+///////////////////
+/// RESULTADOS ///
+/////////////////
+
+1)  SELECT * FROM store                              
+
+    resultado: 2
+
+2)  SELECT film_id, title, length FROM film
+    WHERE length > 120                               
+
+    resultado: 457
+
+3)  SELECT * from payment                            
+    HERE customer_id = 472
+
+    resultado: 26
+
+4)  SELECT * FROM inventory
+    WHERE inventory_id = 303
+
+    resultado: 68
+
+5)  SELECT * FROM address
+    WHERE phone = '634445428822'
+
+    resultado: {
+        address: 1565 Tangail Manor,
+        district: Okinawa
+    }
