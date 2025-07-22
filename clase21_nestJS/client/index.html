@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notificaciones WebSocket</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main>
+    <h1>🔔 Notificaciones</h1>
+    <h2 id="userId"></h2>
+    <button onclick="getNotifications()">Pedir Notificaciones</button>
+  </main>
+
+  <section id="notifications"></section>
+
+  <script>
+    const socket = io('http://localhost:3000');
+
+    socket.on('connect', (data) => {
+      console.log(`🟢 Conectado: ${socket.id}`);
+    });
+
+    let userIdPromise = new Promise((resolve) => {
+      socket.once('register_user', (data) => {
+        resolve(data.userId);
+      });
+    });
+
+    async function getUserId() {
+      const userId = await userIdPromise;
+      console.log("userId:", userId);
+      const $userIdH2 = document.getElementById('userId');
+      $userIdH2.innerHTML = `User ID: ${userId}`;
+    }
+    getUserId();
+
+    async function getNotifications() {
+      const userId = await userIdPromise;
+      console.log("userId:", userId);
+      if (!userId) {
+        console.log('❌ No se ha recibido userId aún');
+        return;
+      }
+      else {
+        socket.emit('get_notifications', { userId });
+        socket.off('requested_notifications');
+        socket.once('requested_notifications', notifications => {
+        if (!notifications || notifications.length === 0) {
+          console.log("ℹ️ No hay notificaciones para mostrar");
+          return;
+        }
+
+        console.log("✅ Notificaciones recibidas:", notifications);
+        const $notifications = document.getElementById('notifications');
+        $notifications.innerHTML = '';
+        notifications.forEach(renderNotification);
+        });
+      }
+    }
+
+    async function renderNotification(n) {
+      const $notifications = document.getElementById('notifications');
+      const div = document.createElement('div');
+      div.className = 'notification' + (n.read ? ' read' : '');
+      div.id = `noti-${n.id}`;
+      div.innerHTML = `
+        <span>${n.message}</span>
+        ${
+          n.read
+            ? '✅ Leída'
+            : `<button onclick="markAsRead('${n.id}')">Marcar como leída</button>`
+        }
+      `;
+      $notifications.appendChild(div);
+    }
+
+    async function markAsRead(id) {
+      const userId = await userIdPromise;
+
+      socket.emit('read_notification', {
+        userId,
+        notificationId: id
+      });
+
+      socket.once('notification_read', (notificationId) => {
+        if (notificationId !== id) return;
+
+        const notiDiv = document.getElementById(`noti-${id}`);
+        if (notiDiv) {
+          notiDiv.classList.add('read');
+          const btn = notiDiv.querySelector('button');
+          if (btn) btn.remove();
+          const check = document.createElement('span');
+          check.innerText = '✅ Leída';
+          notiDiv.appendChild(check);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
