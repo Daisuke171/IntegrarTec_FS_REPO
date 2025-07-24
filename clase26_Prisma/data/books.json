@@ -1,0 +1,24 @@
+[
+  {
+    "id": "169c8e7e-a8e7-4b7d-ac92-7712b35b6058",
+    "title": "Sun and Steel",
+    "author": "Yukio Mishima",
+    "pages": 142,
+    "language": "English",
+    "year": 1970,
+    "genre": "Essay",
+    "isbn": "9780870119432",
+    "country": "Japan"
+  },
+  {
+    "id": "f3c7f17b-deb7-44f6-b0c3-b0cb230a83f8",
+    "title": "The Stranger",
+    "author": "Albert Camus",
+    "pages": 123,
+    "language": "English",
+    "year": 1942,
+    "genre": "Philosophical fiction",
+    "isbn": "9780679720201",
+    "country": "France"
+  }
+]
