@@ -1,0 +1,94 @@
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #6ee7b7;
+  --accent-strong: #34d399;
+  --error: #ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(2,6,23,0.6);
+  --gap: 0.75rem;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: linear-gradient(180deg, #061021 0%, #071226 100%);
+  color: #e6eef6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.form {
+  width: 100%;
+  max-width: 420px;
+  margin: 36px auto;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  color: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease, transform 120ms ease;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25);
+}
+
+.form input::placeholder {
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+.form input:focus {
+  border-color: var(--accent-strong);
+  box-shadow: 0 6px 20px rgba(52,211,153,0.06);
+  transform: translateY(-1px);
+}
+
+.form span {
+  font-size: 12px;
+  color: var(--error);
+  margin-top: -6px;
+  padding-left: 6px;
+  align-self: flex-start;
+}
+
+.form button[type="submit"] {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color: #012018;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(16,185,129,0.14);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(16,185,129,0.16);
+}
+.form button[type="submit"]:active {
+  transform: translateY(0);
+}
